@@ -4,8 +4,17 @@ Here is how to deploy a Nuxt 3 project on GitHub Pages:
 
 1. Install dev dependency `gh-pages`
 2. Add the script `"deploy": "gh-pages -d dist"` in package.json file
-2. Generate with `npm run generate`
-3. Deploy with `npm run deploy`
+3. Specifiy router base in nuxt.config.ts.
+4. Generate with `npm run generate`
+5. Deploy with `npm run deploy`
+
+Router config:
+
+```js
+router: {
+  base: '/nuxt-github-pages/' // base: '/<repository>/'
+}
+```
 
 # What it does
 
