@@ -10,9 +10,11 @@ Here is how to deploy a Nuxt 3 project on GitHub Pages:
 
 Router config:
 
-```js
-router: {
-  base: '/nuxt-github-pages/' // base: '/<repository>/'
+```ts
+export default defineNuxtConfig({
+  router: {
+    base: '/nuxt-github-pages/' // base: '/<repository>/'
+  }
 }
 ```
 
