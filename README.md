@@ -5,15 +5,18 @@ Here is how to deploy a Nuxt 3 project on GitHub Pages:
 1. Install dev dependency `gh-pages`
 2. Add the script `"deploy": "gh-pages -d dist"` in package.json file
 3. Specifiy app baseURL in nuxt.config.ts.
-4. Generate with `npm run generate`
-5. Deploy with `npm run deploy`
+4. Specifiy app buildAssetsDir in nuxt.config.ts that doesn't start with underscore `_` See the router config example.
+5. create a empty file named `.nojekyll`
+6. Generate with `npm run generate`
+7. Deploy with `npm run deploy`
 
 Router config:
 
 ```ts
 export default defineNuxtConfig({
   app: {
-    baseURL: '/nuxt-github-pages/' // baseURL: '/<repository>/'
+    baseURL: '/nuxt-github-pages/', // baseURL: '/<repository>/'
+    buildAssetsDir: 'assets', // don't use "_" at the begining of the folder name to avoids nojkill conflict
   }
 }
 ```
@@ -25,3 +28,5 @@ The dependency will copy your dist content to a specific `gh-pages` branch that 
 The site is accessible on `https://<username>.github.io/<repository>/`. For this repository, the site is https://lucpotage.github.io/nuxt-github-pages/.
 
 You can rely on GitHub Actions too. More info here: https://medium.com/front-end-weekly/ci-cd-with-github-actions-to-deploy-on-github-pages-73e225f8f131
+
+More information about buildAssetsDir config: https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/
